@@ -49,7 +49,7 @@ button:hover{border-color:var(--acc)}
 <div><label>Posun v čase <span id="vs"></span></label><input id="s" type="range" min="-12" max="24" step="1" value="12"><small>kedy krivka „štartuje“ z osi smerom hore</small></div>
 </div>
 <div class="btns" style="margin-top:12px">
-<button id="b1">Zdravý pacient</button>
+<button id="b1" hidden>Zdravý pacient (riešenie)</button>
 <button id="b2">Horúčka</button>
 <button id="b3">Náhodný štart (úloha)</button>
 <button id="b4">Zobraziť/skryť namerané body</button>
@@ -104,6 +104,8 @@ $('b1').onclick=function(){set(0.45,36.65,24,12)};
 $('b2').onclick=function(){set(0.45,38.4,24,12)};
 $('b3').onclick=function(){set((Math.floor(Math.random()*20)+3)/20,36+Math.floor(Math.random()*20)/20*2,[12,18,30,36][Math.floor(Math.random()*4)],Math.floor(Math.random()*12))};
 $('b4').onclick=function(){showPts=!showPts;draw()};
+function hashCheck(){$('b1').hidden=(location.hash!=='#riesenie')}
+window.addEventListener('hashchange',hashCheck);hashCheck();
 draw();
 </script>
 </body>
